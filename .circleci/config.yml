@@ -29,7 +29,11 @@ workflows:
   my_workflow:
     jobs:
       - Build
-      - test
-      - Analysis
+      - test:
+          requires:
+            - Build
+      - Analysis:
+          requires:
+            - test
 
   
