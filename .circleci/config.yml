@@ -4,7 +4,7 @@ jobs:
 
   Build:
     docker:
-       - image: circlci/node:13.8.0
+       - image: circleci/node:13.8.0
     steps:
       - run: npm i
       - save_cache:
@@ -14,7 +14,7 @@ jobs:
       - run: npm run lint 
   Test:
     docker:
-       - image: circlci/node:13.8.0
+       - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -25,7 +25,7 @@ jobs:
         
   Analysis:
     docker:
-       - image: circlci/node:13.8.0
+       - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
