@@ -7,20 +7,14 @@ jobs:
        - image: circleci/node:13.8.0
     steps:
       - run: npm i
-      - save_cache:
-          key: demo
-          paths:
-             - /src/node_modules
       - run: npm run lint 
-  Test:
+  test:
     docker:
        - image: circleci/node:13.8.0
     steps:
       - checkout
-      - restore_cache:
-          key: demo
       - run: npm i
-      - run: npm run Test
+      - run: npm run test
 
         
   Analysis:
@@ -35,7 +29,7 @@ workflows:
   my_workflow:
     jobs:
       - Build
-      - Test
+      - test
       - Analysis
 
   
